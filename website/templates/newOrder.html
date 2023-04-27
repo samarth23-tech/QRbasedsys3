@@ -1,0 +1,121 @@
+<html lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/new.css') }}">
+
+<title>Orders</title>
+<script>
+// function calTotal(pri, qty) {
+//   let total = pri * qty;
+//   console.log(typeof total);
+//   let message = `Total: $${total.toFixed(2)}`;
+//   document.getElementById("tamt").textContent = message;
+// }
+
+function calTotal() {
+  let price = document.getElementById("pri").value;
+  let quantity = document.getElementById("qty").value;
+  let total = price * quantity;
+  //document.getElementById("tamt").innerHTML = "Total: " + total;
+  const myInput = document.getElementById("tamt");
+  myInput.value=total;
+}
+
+
+function checkout(){
+  window.location.href="/dbupd"
+}
+function addmore(){
+  window.location.href="/"
+}
+</script>
+
+</head>
+<body class="bg-light">
+  <form method="post" action="/dbupd">
+<!-- <div class="container-fluid"> -->
+    <div class="row">
+        <div class="col-md-10 col-11 mx-auto">
+            <div class="row mt-5 gx-3">
+
+            <!-- left side div -->
+            <div class="container">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>ITEM NAME</th>
+                      <th>PRICE</th>
+                      <th>QUANTITY</th>
+                      
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td>
+                          
+                          <!-- product name  -->
+                              
+                                  <h1 class="mb-4 product_name">{{title}}</h1></td>
+                                  <td>  
+                                    <input type="text" placeholder="Price" id="pri" value=" {{price}}" disabled>
+                                </td>
+                                  
+                      <td>
+                          <input type="text" class="mb-2" placeholder="Enter Quantity" id="qty" name="qty" value="1">
+                          <!-- <button type="button" class="btn btn-outline-danger">SAVE</button> -->
+                          <input type="button" value="SAVE" onclick="calTotal()" class="btn btn-outline-danger">
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+
+
+                                <!-- right side div -->
+                                <div class="col-md-12 col-lg-4 col-11 mx-auto mt-lg-0 mt-md-5">
+                                  <div class="right_side p-3 shadow bg-white">
+                                      <h2 class="product_name mb-5">The Total Amount Of</h2>
+                                          <div class="price_indiv d-flex justify-content-between">
+                                              <p>Product amount</p>
+                                              <p>RS<span id="product_total_amt">{{price}}</span></p>
+                                          </div>
+                                          <div class="price_indiv d-flex justify-content-between">
+                                              <p>GST Charge</p>
+                                              <p>RS <span id="shipping_charge">20.0</span></p>
+                                          </div>
+                                          <hr/>
+                                          <div class="total-amt d-flex justify-content-between font-weight-bold">
+                                              <p>The total amount of (including VAT)</p>
+                                              RS <input type="text" name="tamt" id="tamt" value="0.00" readonly>
+
+                                          </div>  <br><br>  
+                                        <button class="btn btn-primary text-uppercase" type="submit">Checkout</button>
+                                     <button class="btn btn-primary text-uppercase" style="padding-left: 10‒;border-left-width: 2px;margin-left: 79px;" type="button" onclick="addmore()">ADD MORE</button>
+                                  </div>
+                              </div>
+
+                              
+
+
+            </div>
+
+        </div>
+    </div>
+
+   
+<!-- </div> -->
+   </form>
+
+
+
+</body>
+</html>

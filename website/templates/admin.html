@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Admin & Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+  <!-- box icon -->
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo_details">
+      <i class='bx bx-code-alt'></i>
+      <div class="logo_name">
+       <!---->
+      </div>
+    </div>
+    <ul>
+      <li>
+        <a href="#" class="active">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">
+            Dashboard
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-user'></i>
+          <span class="links_name">
+            Profile
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-cart-alt'></i>
+          <span class="links_name">
+            Order
+          </span>
+        </a>
+      </li>
+      <li class="login">
+        <a href="/logout">
+          <span class="links_name login_out">
+            Login Out
+          </span>
+          <i class='bx bx-log-out' id="log_out"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!-- End Sideber -->
+  <section class="home_section">
+    <div class="topbar">
+      <div class="toggle">
+        <i class='bx bx-menu' id="btn"></i>
+      </div>
+      <div class="search_wrapper">
+        <label>
+          <span>
+            <i class='bx bx-search'></i>
+          </span>
+          <input type="search" placeholder="Search...">
+        </label>
+      </div>
+      <div class="user_wrapper">
+        <img src="{{ url_for('static', filename='image/logoo.png') }}" >
+      </div>
+    </div>
+    <!-- End Top Bar -->
+
+    <div class="card-boxes">
+      {% for key, value in data %}
+      <li>Order ID: {{ value[0]['Orderid'] }}, Item Name: {{ value[0]['itemname'] }}, Quantity: {{ value[0]['quantity'] }}, Price: {{ value[0]['Price'] }}, Status: {{ value[0]['Status'] }}</li>
+      {% endfor %}
+
+
+      <div class="box">
+        <div class="right_side">
+          <div class="numbers">9.99</div>
+          <div class="box_topic">Accepted Orders</div>
+        </div>
+        <i class='bx bx-cart-alt'></i>
+      </div>
+      <div class="box">
+        <div class="right_side">
+          <div class="numbers">15.9</div>
+          <div class="box_topic">Pending Orders</div>
+        </div>
+        <i class='bx bxs-cart-add'></i>
+      </div>    
+    </div>
+    <!-- End Card Boxs -->
+    <div class="details">
+    </div>
+  </section>
+
+  <script>
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+
+    closeBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("open");
+      // call function
+      changeBtn();
+    });
+
+    function changeBtn() {
+      if(sidebar.classList.contains("open")) {
+        closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+      } else {
+        closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+      }
+    }
+  </script>
+</body>
+</html>

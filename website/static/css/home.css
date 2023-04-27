@@ -1,0 +1,149 @@
+
+    
+    /*h1, h2, h3, h4, h5, h6 {
+    font-family: "Roboto Slab";
+    letter-spacing: 5px;
+}*/
+
+
+
+.logo
+{
+    width: 301px;
+    height: 41px;
+
+}
+
+
+.imglogo
+{
+    width: 250px;
+    height: 100px;
+
+}
+
+
+
+.w3-button{
+    color: brown;
+}
+
+.container{
+    margin-top: 1%;
+}
+
+/*body{
+    font-family:'Roboto Slab';
+
+}*/
+
+/*h7{
+    font-size: 0.7vw;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}*/
+
+.box-shadow{
+    border: 0%;
+    box-shadow: 0px 2px 12px rgba(0,0,0,0.2);
+    border-radius: 5%;
+}
+
+.inner{
+    overflow: hidden;
+}
+
+.inner img{
+    transition: all 1.5s ease;
+    border-radius: 5%;
+    
+}
+
+.inner:hover img{
+    transform: scale(1.5);
+}
+.footer_pg{
+    background-color: #DE3163;
+}
+
+.btn{
+    color: white;
+    background-color:#DE3163;
+    transition: 0.6s;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 25px;
+    box-shadow:0 0 10px rgba(0, 0, 0, 0.1);
+   -webkit-transition-duration:0.3s;
+    transition-duration: 0.3s;
+   -webkit-transition-property: box-shadow, transform;
+   transition-property: box-shadow, transform;
+}
+
+.btn:hover, .btn:focus, .btn:active{
+  background-position: right;
+   box-shadow: 0 0 20px rgba(197, 23, 23, 0.5);
+  -webkit-transform: scale(1.1);
+   transform: scale(1.1);
+ 
+}
+
+.col-sm-4 {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 30.333333%;
+    margin-left: 15px;
+    margin: 13px;
+}
+
+.mt-4, .my-4 {
+    margin-top: -0.5rem!important;
+}
+
+.navbar-brand{
+    background-color: light-red;
+}
+
+.carousel-caption {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+a{
+    position: relative;
+    text-decoration: none;
+    font-family: 'poppins',sans-serif;
+    color: #0b65af;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    padding: 0,10px;
+      }
+    
+      a:after{
+        content: "";
+        position: absolute;
+        background-color: rgb(78, 63, 63);
+        height: 3px;
+        width: 0;
+        left:0;
+        bottom: -10px;
+        transition: 0.3s;
+      }
+    
+      a:hover{
+        color: rgb(219, 204, 204);
+      }
+      a:hover:after{
+        width:100%;
+        font-weight: 100px;
+      }
+
+      /*nav element design*/
+      .nav-link{
+        font-family: 'Light & Shadows';
+        font-size: 20px;
+        font-weight: bold;
+        
+      }
+
+      .pt-4, .py-4 {
+        padding-top: 0px;
+    }
